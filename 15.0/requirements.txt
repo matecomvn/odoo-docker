@@ -1,3 +1,0 @@
-pysftp
-pyfcm
-firebase-admin

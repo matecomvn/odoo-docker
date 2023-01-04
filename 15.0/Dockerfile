@@ -34,16 +34,6 @@ RUN apt-get update && \
         python3-mutagen \
         xz-utils
 
-# Install python lib
-#COPY ./requirements.txt /
-#RUN pip3 install -r requirements.txt
-
-# Install python lib
-#RUN pip install pysftp \
-#        pyfcm \
-#        firebase-admin
-
-
 # Install wkhtmltopdf
 RUN WKH_VERSION=$([ "$(uname -m)" = 'aarch64' ] && echo "arm64" || echo "amd64") \
     && curl -o wkhtmltox.deb -sSL https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_${WKH_VERSION}.deb \
@@ -76,6 +66,19 @@ RUN curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/od
     && apt-get update \
     && apt-get -y install --no-install-recommends ./odoo.deb \
     && rm -rf /var/lib/apt/lists/* odoo.deb
+
+# Remove Odoo modules
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/digest
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/website
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/auth_signup
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/auth_totp_mail
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/portal
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/website_profile
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/website_slides
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/gamification
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/survey
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/website_slides_survey
+RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/calendar
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
