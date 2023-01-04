@@ -34,16 +34,6 @@ RUN apt-get update && \
         python3-mutagen \
         xz-utils
 
-# Install python lib
-#COPY ./requirements.txt /
-#RUN pip3 install -r requirements.txt
-
-# Install python lib
-#RUN pip install pysftp \
-#        pyfcm \
-#        firebase-admin
-
-
 # Install wkhtmltopdf
 RUN WKH_VERSION=$([ "$(uname -m)" = 'aarch64' ] && echo "arm64" || echo "amd64") \
     && curl -o wkhtmltox.deb -sSL https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_${WKH_VERSION}.deb \
