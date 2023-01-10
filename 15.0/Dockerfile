@@ -80,6 +80,10 @@ RUN rm -rf /usr/lib/python3/dist-packages/odoo/addons/digest \
     && rm -rf /usr/lib/python3/dist-packages/odoo/addons/website_slides_survey \
     && rm -rf /usr/lib/python3/dist-packages/odoo/addons/calendar
 
+# Install python lib
+COPY ./requirements.txt /
+RUN pip install -r requirements.txt
+
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
 COPY ./odoo.conf /etc/odoo/
