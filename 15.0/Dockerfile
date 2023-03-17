@@ -32,6 +32,10 @@ RUN apt-get update && \
         python3-xlwt \
         python3-magic \
         python3-mutagen \
+        python3-matplotlib \
+        python3-numpy \
+        python3-pil \
+        python3-scipy \
         xz-utils
 
 # Install wkhtmltopdf
