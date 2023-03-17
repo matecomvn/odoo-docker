@@ -3,4 +3,4 @@ pyopenssl==20.0.1
 cryptography==3.3.2
 numpy==1.22.3
 imgkit==1.2.2
-scikit-image==0.20.0
+opencv-python==4.7.0.72

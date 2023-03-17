@@ -17,6 +17,7 @@ RUN apt-get update && \
         libssl-dev \
         node-less \
         npm \
+        libgl1-mesa-glx \
         python3-num2words \
         python3-pdfminer \
         python3-pip \
@@ -32,10 +33,8 @@ RUN apt-get update && \
         python3-xlwt \
         python3-magic \
         python3-mutagen \
-        python3-matplotlib \
         python3-numpy \
         python3-pil \
-        python3-scipy \
         xz-utils
 
 # Install wkhtmltopdf
