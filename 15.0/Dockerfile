@@ -35,6 +35,7 @@ RUN apt-get update && \
         python3-mutagen \
         python3-numpy \
         python3-pil \
+        python3-opencv \
         xz-utils
 
 # Install wkhtmltopdf
