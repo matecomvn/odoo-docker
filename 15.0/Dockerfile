@@ -17,7 +17,6 @@ RUN apt-get update && \
         libssl-dev \
         node-less \
         npm \
-        libgl1-mesa-glx \
         python3-num2words \
         python3-pdfminer \
         python3-pip \
